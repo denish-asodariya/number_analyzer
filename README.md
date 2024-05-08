@@ -15,13 +15,13 @@ Welcome to the Number Analyzer CLI! This command-line application analyzes a giv
 1. Clone this repository to your local machine:
 
    ```bash
-   git clone https://github.com/denish-asodariya/number-analyzer-cli.git
+   git clone https://github.com/denish-asodariya/number_analyzer.git
    ```
 
 2. Navigate to the project directory:
 
    ```bash
-   cd number-analyzer
+   cd number_analyzer
    ```
 
 3. Run the CLI application:
