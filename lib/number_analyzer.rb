@@ -1,4 +1,5 @@
-require 'text'
+# number_analyzer.rb
+require 'sentimental'
 
 class NumberAnalyzer
   attr_reader :input_string
@@ -44,8 +45,9 @@ class NumberAnalyzer
   end
 
   def analyze_sentiment
-    # Implement sentiment analysis logic here
-    Text::Sentiment.new(input_string).sentiment
+    analyzer = Sentimental.new
+    analyzer.load_defaults
+    analyzer.sentiment(input_string)
   end
 end
 
