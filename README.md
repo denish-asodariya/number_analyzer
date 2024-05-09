@@ -9,6 +9,8 @@ Welcome to the Number Analyzer CLI! This command-line application analyzes a giv
 - Counts the total number of digits in the input string.
 - Counts the total number of symbols (non-alphanumeric characters) in the input string.
 - Displays the total number of characters in the input string.
+- Analyzes the sentiment of the input string (in progress).
+- Provides word frequencies of the input string.
 
 ## Usage
 
@@ -42,11 +44,13 @@ The output will be:
 
 ```
 Analysis for the input string:
-Number of letters: 16
-Number of spaces: 5
+Number of letters: 14
+Number of spaces: 4
 Number of digits: 3
-Number of symbols: 2
-Total characters: 26
+Number of symbols: 7
+Total characters: 24
+Word frequencies: {"hello"=>1, "123"=>1, "how"=>1, "are"=>1, "you"=>1}
+Sentiment: neutral
 ```
 
 ## Tests
