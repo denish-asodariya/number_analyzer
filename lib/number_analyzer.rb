@@ -1,3 +1,5 @@
+require 'text'
+
 class NumberAnalyzer
   attr_reader :input_string
 
@@ -11,7 +13,9 @@ class NumberAnalyzer
       spaces_count: count_spaces,
       digits_count: count_digits,
       symbols_count: count_symbols,
-      total_characters: input_string.length
+      total_characters: input_string.length,
+      word_frequencies: word_frequencies,
+      sentiment: analyze_sentiment
     }
   end
 
@@ -32,6 +36,17 @@ class NumberAnalyzer
   def count_symbols
     input_string.scan(/\W/).size
   end
+
+  def word_frequencies
+    words = input_string.downcase.split(/\W+/)
+    words.reject!(&:empty?)
+    words.group_by(&:itself).transform_values(&:count)
+  end
+
+  def analyze_sentiment
+    # Implement sentiment analysis logic here
+    Text::Sentiment.new(input_string).sentiment
+  end
 end
 
 class CLI
@@ -47,6 +62,10 @@ class CLI
       when '1'
         analyze_input
       when '2'
+        search_word
+      when '3'
+        export_results
+      when '4'
         exit_program
       else
         puts "Invalid option. Please select again."
@@ -59,7 +78,9 @@ class CLI
   def print_menu
     puts "\nMenu:"
     puts "1. Analyze input string"
-    puts "2. Exit"
+    puts "2. Search for a word"
+    puts "3. Export analysis results"
+    puts "4. Exit"
     print "Select an option: "
   end
 
@@ -78,6 +99,20 @@ class CLI
     puts "Number of digits: #{results[:digits_count]}"
     puts "Number of symbols: #{results[:symbols_count]}"
     puts "Total characters: #{results[:total_characters]}"
+    puts "Word frequencies: #{results[:word_frequencies]}"
+    puts "Sentiment: #{results[:sentiment]}"
+  end
+
+  def search_word
+    print "Enter a word to search for: "
+    search_word = gets.chomp.downcase
+    word_count = input_string.downcase.scan(/\b#{search_word}\b/).size
+    puts "The word '#{search_word}' appears #{word_count} times in the input string."
+  end
+
+  def export_results
+    # Implement export functionality here
+    puts "Exporting analysis results..."
   end
 
   def exit_program
