@@ -25,16 +25,22 @@ Welcome to the Number Analyzer CLI! This command-line application analyzes a giv
    ```bash
    cd number_analyzer
    ```
+   
+3. Run this command for install sentimental package:
 
-3. Run the CLI application:
+   ```bash
+   gem install sentimental
+   ```
+   
+4. Run the CLI application:
 
    ```bash
    ruby main.rb
    ```
 
-4. Enter a string when prompted and press Enter to analyze it.
+5. Enter a string when prompted and press Enter to analyze it.
 
-5. View the analysis results displayed in the terminal.
+6. View the analysis results displayed in the terminal.
 
 ## Example
 
